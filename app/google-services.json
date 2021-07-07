@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "160598135957",
+    "project_id": "k-phone-b4384",
+    "storage_bucket": "k-phone-b4384.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160598135957:android:7049221b1873f5c045b79c",
+        "android_client_info": {
+          "package_name": "uz.abuyork.k_phone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160598135957-p12okbdbl9eu5jb04ddjujh4gs6d1dma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHBz3GbFa3-T03EP7NfunppgKN6TkYuog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160598135957-p12okbdbl9eu5jb04ddjujh4gs6d1dma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

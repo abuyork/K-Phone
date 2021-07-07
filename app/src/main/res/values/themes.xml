@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Theme.KPhone.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KPhone.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.KPhone.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

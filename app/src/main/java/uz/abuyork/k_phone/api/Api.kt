@@ -2,14 +2,10 @@ package uz.abuyork.k_phone.api
 
 import io.reactivex.Observable
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import uz.abuyork.k_phone.model.BaseResponse
-import uz.abuyork.k_phone.model.CategoryModel
-import uz.abuyork.k_phone.model.OfferModel
-import uz.abuyork.k_phone.model.ProductModel
+import retrofit2.http.*
+import uz.abuyork.k_phone.model.*
+import uz.abuyork.k_phone.model.request.MakeOrderRequest
+import uz.abuyork.k_phone.model.request.RegisterRequest
 import uz.abuyork.k_phone.model.request.GetProductsByIdsRequest
 
 interface Api {
@@ -27,4 +23,21 @@ interface Api {
 
     @POST("get_products_by_ids")
     fun getProductsByIds(@Body request: GetProductsByIdsRequest) : Observable<BaseResponse<List<ProductModel>>>
+
+    @GET("check_phone")
+    fun checkPhone(@Query("phone") phone: String): Observable<BaseResponse<CheckPhoneResponse>>
+
+    @GET("login")
+    fun login(@Query("phone") phone: String, @Query("password") password: String): Observable<BaseResponse<LoginResponse>>
+
+    @POST("register")
+    fun register(@Body request: RegisterRequest): Observable<BaseResponse<Any>>
+
+    @GET("confirm")
+    fun confirm(@Query("phone") phone: String, @Query("sms_code") password: String): Observable<BaseResponse<LoginResponse>>
+
+    @POST("make_order")
+    fun makeOrder(@Body request: MakeOrderRequest): Observable<BaseResponse<Any>>
+
+
 }

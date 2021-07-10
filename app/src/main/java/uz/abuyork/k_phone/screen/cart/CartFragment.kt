@@ -15,6 +15,7 @@ import uz.abuyork.k_phone.R
 import uz.abuyork.k_phone.model.ProductModel
 import uz.abuyork.k_phone.screen.MainViewModel
 import uz.abuyork.k_phone.screen.makeorder.MakeOrderActivity
+import uz.abuyork.k_phone.screen.sign.LoginActivity
 import uz.abuyork.k_phone.utils.Constants
 import uz.abuyork.k_phone.utils.PrefUtills
 import uz.abuyork.k_phone.view.CartAdapter
@@ -57,20 +58,23 @@ class CartFragment : Fragment() {
         }
 
         btnMakeOrder.setOnClickListener {
-            val intent = Intent(requireActivity(), MakeOrderActivity::class.java)
-            intent.putExtra(Constants.EXTRA_DATA, (viewModel.productsData.value ?: emptyList<ProductModel>()) as Serializable)
-            startActivity(intent)
+            if (PrefUtills.getToken().isNullOrEmpty()){
+                startActivity(Intent(requireActivity(), LoginActivity::class.java))
+            }else{
+                val intent = Intent(requireActivity(), MakeOrderActivity::class.java)
+                intent.putExtra(Constants.EXTRA_DATA, (viewModel.productsData.value ?: emptyList<ProductModel>()) as Serializable)
+                startActivity(intent)
+            }
         }
 
         loadData()
     }
 
     fun loadData(){
-        viewModel.getProductsByIds(PrefUtills.getCartList().map { it.product_id })
+        viewModel.getProductsByIds(PrefUtills.getCartList().map { it.id })
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance() = CartFragment()
     }
